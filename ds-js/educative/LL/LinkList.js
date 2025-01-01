@@ -254,4 +254,38 @@ export class LinkList {
     return false;
 
   }
+
+   detectCycleTwoPointer(head) {
+  
+  
+    if(head === null){
+      return false;
+    }
+    
+      let p1 = head; // 4
+      let p2 = head.nextElement.nextElement; // 2
+      
+      while(p1 !== p2){
+        if(p2 === null){
+          return false;
+        }
+        
+        if(p2.nextElement === null || p2.nextElement.nextElement === null){
+          return false;
+        }
+  
+  
+        p1 = p1.nextElement; // n5
+        p2 = p2.nextElement.nextElement; // n5
+      }
+      
+      
+      if(p1 === p2){
+        return true;
+      }
+  
+  
+      // Replace this placeholder return statement with your code
+      return false;
+  }
 }
