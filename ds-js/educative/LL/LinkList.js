@@ -232,4 +232,26 @@ export class LinkList {
     // Replace this placeholder return statement with your code
     return head;
   }
+
+  detectCycle(){
+
+    let pointer = this.head;
+
+    let obj = new Map();
+
+    while(pointer){
+
+      if(obj.get(pointer)){
+        return true;
+      }
+
+
+      obj.set(pointer, true)
+      pointer = pointer.nextElement;
+    }
+
+   
+    return false;
+
+  }
 }
