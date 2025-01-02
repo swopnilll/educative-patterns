@@ -288,4 +288,48 @@ export class LinkList {
       // Replace this placeholder return statement with your code
       return false;
   }
+
+  returnMiddleList(head){
+
+    if(head === null){
+      return null;
+    }
+
+    if(head.nextElement === null){
+      return head;
+    }
+
+    let length = 0;
+
+    let pointer = head;
+
+    // n1,n2,n3,n4
+
+    //n4
+    while(pointer){
+      length++; // 5
+      pointer = pointer.nextElement; // null
+    }
+
+
+    pointer = head;
+
+    let middlePosition = Math.floor(length / 2) + 1; // 3
+
+    let index = 1;
+
+
+    // n3
+    while(pointer && index <= middlePosition){
+     
+      if(index === middlePosition){
+        return pointer;
+      }
+
+      index ++; 3
+      pointer = pointer.nextElement;
+    }
+
+
+  }
 }
