@@ -332,4 +332,38 @@ export class LinkList {
 
 
   }
+
+  returnMiddleListTwoPointer(head){
+
+    if(head === null){
+      return null;
+    }
+
+    if(head.next === null){
+      return head;
+    } 
+
+    let pointer = head;
+
+    let mid = head;
+    let fast = head;
+
+    // list = n1 n2 n3 n4 n5 n6
+
+    // fast = n5
+    while(fast.next){
+
+      // mid = n4
+      mid = mid.next;
+
+      // fast = null
+      fast = fast.next.next;
+
+      if(fast === null){
+        return mid;
+      }
+    }
+
+    return mid;
+  }
 }
