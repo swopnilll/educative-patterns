@@ -366,4 +366,44 @@ export class LinkList {
 
     return mid;
   }
+
+  removeDuplicate(head){
+    if (!head) {
+      return null;
+    }
+  
+    //If list only has one node, leave it unchanged
+    if (head.next == null) {
+      return head;
+    }
+
+
+    let obj = {
+    
+    };
+
+    let pointer = head;
+
+    let prev;
+
+    while(pointer){      
+      if(obj[pointer.data]){
+        prev.nextElement = pointer.nextElement;
+        pointer = pointer.nextElement;
+      } else {
+        obj[pointer.data] = true;
+
+        prev = pointer;
+
+        pointer = pointer.nextElement;
+      }
+
+    }
+
+    return head;
+
+
+  }
+
+
 }
