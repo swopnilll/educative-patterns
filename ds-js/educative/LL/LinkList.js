@@ -448,4 +448,45 @@ export class LinkList {
     }
 
 	}
+
+	 intersection(head1, head2) {
+		let dummyNode = new LinkedListNode(null);
+		
+		let returningListPointer = dummyNode;
+	  
+		let obj = {};
+		
+		let pointer = head1;
+		
+		while(pointer){
+		  if(!obj[pointer.data]){
+			obj[pointer.data] = true;  
+		  }
+		  
+		  pointer = pointer.next;
+		}
+		
+		pointer = head2;
+		
+		// [15,14,21]
+		while(pointer){
+		  
+		  if(obj[pointer.data]){
+			returningListPointer.next = pointer;
+			
+			returningListPointer = pointer;
+		  }
+		  
+		  if(pointer.next === null){
+			returningListPointer.next = null;
+		  }
+		  
+		  pointer = pointer.next;
+		  
+		  
+		}
+		
+		return dummyNode.next;
+	}
+  
 }
