@@ -488,5 +488,52 @@ export class LinkList {
 		
 		return dummyNode.next;
 	}
+
+	returnNthNodeFromEndOfList(n){
+		let pointer = this.head;
+
+		let prev = null;
+
+		let temp = null;
+
+		let length = 1;
+
+		while(pointer){		
+			// n2
+			temp = pointer;
+
+			if(pointer.nextElement === null){
+				this.head = pointer;
+			}
+
+			//n3
+			pointer = pointer.nextElement;	
+
+			//n2.nextElement = n1;
+			temp.nextElement = prev;
+
+			// prev n1
+			prev = temp;
+			
+			length++;
+		}
+
+		pointer = this.head;
+
+
+		if(n > length){
+			return null;
+		}
+
+		let iterator = 1;
+
+		while(iterator < n){
+			pointer = pointer.nextElement;
+
+			iterator ++;
+		}
+
+		return pointer;
+	}
   
 }
