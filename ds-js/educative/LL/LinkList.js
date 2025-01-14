@@ -535,5 +535,31 @@ export class LinkList {
 
 		return pointer;
 	}
+
+
+	// n1 n2 n3 n4 n5 
+	// n = 3
+
+	returnNthNodeTwoPointer(head, n){
+
+		let slowPointer = head;
+		let fastPointer = head;
+
+		let tempIndex = 1;
+
+		// fp = 
+		while(fastPointer){
+			slowPointer = slowPointer.next;
+
+			while(n > tempIndex){
+				fastPointer = fastPointer.next;
+				tempIndex++;
+			}
+
+			tempIndex = 0;
+		}
+
+		return slowPointer.next;
+	}
   
 }
