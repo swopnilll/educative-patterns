@@ -91,3 +91,44 @@ const rotateRightByKBrute2 = (nums, k) => {
 
     return nums;
 }
+
+const rotateRightByKNaive1 = (nums, k) => {
+    if(nums.length === 0){
+        return [];
+    }
+
+    k = k % nums.length;
+    
+    let array = [];
+
+    for(let i = nums.length - k; i < nums.length; i++){
+        array.push(nums[i]);
+    }
+
+    // [4,5]
+    
+    for(let j = 0; j < nums.length - k; j++){
+        array.push(nums[j])
+    }
+
+    return array;
+
+}
+
+const rotateRightBySliceShift = (nums, k) => {
+// console.log(animals.slice(-2));
+// Expected output: Array ["duck", "elephant"]
+
+// [a,b,c,d,e,f]
+// k = 2
+// [e,f]
+// slice(0, nums.length - k)
+
+
+k = k % nums.length;
+
+return nums.slice(-k).concat(nums.slice(0, -k));
+
+}
+
+
