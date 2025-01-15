@@ -67,3 +67,27 @@ const rotateRightByKBrute = (nums, k) => {
 
     
 }
+
+// Another Brute Solution
+const rotateRightByKBrute2 = (nums, k) => {
+    if(nums.length === 0){
+        return [];
+    }
+    
+    k = k % nums.length;
+
+    let lastElement;
+
+    for(let i = 0; i < k; i++){
+        lastElement = nums[nums.length - 1];
+
+        for(let j = nums.length - 1; j > 0; j--){
+            nums[j] = nums[j - 1];
+        }
+
+        nums[0] = lastElement;
+
+    }
+
+    return nums;
+}
