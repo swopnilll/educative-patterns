@@ -45,3 +45,34 @@ const traverseMatrix = (matrix) => {
 
     return storageArray;
 };
+
+const traverseMatrixBasedOnEvenOdd = (matrix) => {
+    let rowL = matrix.length;
+    let colL = matrix[0].length;
+
+    let storageArray = [];
+
+    // If Col is Odd, Traverse from Bottom
+    // If Col is Even, Traverse From Top 
+
+    let index = 0;
+
+    for(let col = colL - 1; col >= 0; col-- ){
+
+        if(col % 2 === 0){
+            for(let row = 0; row < rowL; row++){
+                storageArray[index] = matrix[row][col];
+                index = index + 1;
+            }
+        } else {
+            for(let row = rowL - 1; row >= 0; row++){
+                storageArray[index] = matrix[row][col];
+                index = index + 1;
+            }
+        }
+
+    }
+
+    return storageArray;
+
+}
